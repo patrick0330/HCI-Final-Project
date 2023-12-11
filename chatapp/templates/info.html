@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>推甄信息</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #43583b;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #app-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #web-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #user-info {
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 15px;
+        }
+
+        #content {
+            padding-top: 0px;
+        }
+
+        /* Three image containers (use 25% for four, and 50% for two, etc) */
+        .row {
+            margin-top: 50px;
+            display: flex;
+        }
+
+        .column {
+            flex: 33.33%;
+            padding: 5px;
+        }
+
+        .column:nth-child(3) {
+            position: relative;
+            left: 100px;
+            /* Add margin to the right of the third column */
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+            /* Equal width for all buttons */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-info,
+        .btn-mock,
+        .btn-identity {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .page-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-links a {
+            text-decoration: none;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 0 10px;
+            color: #007bff;
+        }
+
+        .page-links .btn-info.disabled {
+            pointer-events: none;
+            color: #43583b;
+            border-color: #43583b;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}
+        <header>
+            <span id="web-name">{{ app_name }}</span>
+            <span id="app-name">推甄信息</span>
+            <nav>
+                <ul>
+                    <li id="user-info">Hello! {{ username }}</li>
+                    <a class="btn btn-primary" href="{% url 'signout' %}" role="button">登出</a>
+                </ul>
+            </nav>
+        </header>
+        <div class="page-links">
+            <a class="btn btn-info disabled" href="{% url 'info' %}">推甄信息</a>
+            <a class="btn btn-mock" href="{% url 'mock' %}">模擬面試</a>
+            <a class="btn btn-identity" href="{% url 'identity' %}">個人資訊</a>
+        </div>
+        <div class="row">
+            <a href="{% url 'NTU' %}" class="column">
+                <div>
+                    <img src="https://branditechture.agency/brand-logos/wp-content/uploads/wpdm-cache/National-Taiwan-University-900x0.png"
+                        alt="NTU Logo" style="width:100%">
+                </div>
+            </a>
+            <a href="{% url 'NYCU' %}" class="column">
+                <div>
+                    <img src="https://cis.ncu.edu.tw/ApcourseSys/images/nycu.png" alt="NYCU logo" style="width:100%">
+                </div>
+            </a>
+            <a href="{% url 'NTHU' %}" class="column">
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/NTHU_Round_Seal.svg/1024px-NTHU_Round_Seal.svg.png"
+                        alt="NTHU logo" style="width:70%">
+                </div>
+            </a>
+        </div>
+
+        {% endblock %}
+    </div>
+</body>
+
+</html>

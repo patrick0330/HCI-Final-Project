@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>模擬面試</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #43583b;
+            padding: 20px;
+            /* Adjust the top padding as needed */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #app-name {
+            font-size: 24px;
+            /* Adjust the font size as needed */
+            font-weight: bold;
+        }
+
+        #web-name {
+            font-size: 24px;
+            /* Adjust the font size as needed */
+            font-weight: bold;
+        }
+
+        #user-info {
+            font-size: 18px;
+            /* Adjust the font size as needed */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 15px;
+        }
+
+        #content {
+            padding-top: 0px;
+            /* Adjust the top padding as needed */
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+            /* Equal width for all buttons */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-info,
+        .btn-mock,
+        .btn-test,
+        .btn-identity {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .page-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-links a {
+            text-decoration: none;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 0 10px;
+            color: #007bff;
+        }
+
+        .page-links .btn-mock.disabled {
+            pointer-events: none;
+            color: #43583b;
+            border-color: #43583b;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}
+        <header>
+            <span id="web-name">{{ app_name }}</span>
+            <span id="app-name">模擬面試</span>
+            <nav>
+                <ul>
+                    <li id="user-info">Hello! {{ username }}</li>
+                    <a class="btn btn-primary" href="{% url 'signout' %}" role="button">登出</a>
+                </ul>
+            </nav>
+        </header>
+        <div class="page-links">
+            <a class="btn btn-info" href="{% url 'info' %}">推甄信息</a>
+            <a class="btn btn-mock disabled" href="{% url 'mock' %}">模擬面試</a>
+            <a class="btn btn-identity" href="{% url 'identity' %}">個人資訊</a>
+        </div>
+        <div class="page-links">
+            <a class="btn btn-test" href="{% url 'mockgpt' %}">進入面試</a>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>
