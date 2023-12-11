@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ["hci.ebg.tw"]
 CSRF_TRUSTED_ORIGINS = ['https://hci.ebg.tw']
 
-
 # Application definition
 
 INSTALLED_APPS = [
