@@ -1,8 +1,8 @@
 # HCI-Final-Project
 
-## Usage
+### Thie is a test branch of the project. Main branch is here [link](https://github.com/Mike1ife/HCI-Final-Project)
 
-Thie is a test branch of the project. Main branch is here [link](https://github.com/Mike1ife/HCI-Final-Project)
+## Usage
 
 ~~~bash
 
